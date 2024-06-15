@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class ClickBtn : MonoBehaviour
 {
-    [SerializeField] private int EnergyModifier = 1;
     public void Click()
     {
-        GameManager.Instance.CallChangeEnergyEvent(EnergyModifier);
+        GameManager.Instance.CallChangeEnergyEvent(GameManager.Instance.clickSO.ClickValue);
     }
 }

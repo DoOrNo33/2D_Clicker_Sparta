@@ -9,6 +9,8 @@ public class GameManager : Singleton<GameManager>
 
     public EnergyController energyController;
 
+    public ClickSO clickSO;
+
     protected override void Awake()
     {
         base.Awake();
