@@ -5,4 +5,5 @@ public class ClickSO : ScriptableObject
 {
     public int ClickValue = 1;
     public float AutoClickInterval = 1f;
+    public bool AutoClickEnabled = false;
 }

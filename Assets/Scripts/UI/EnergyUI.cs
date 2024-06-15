@@ -21,6 +21,6 @@ public class EnergyUI : MonoBehaviour
 
     public void UpdateEnergyUI(int amount)
     {
-        energyText.text = GameManager.Instance.energyController.energyAmount.ToString();
+        energyText.text = GameManager.Instance.EnergyController.energyAmount.ToString();
     }
 }

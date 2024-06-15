@@ -6,6 +6,6 @@ public class ClickBtn : MonoBehaviour
 {
     public void Click()
     {
-        GameManager.Instance.CallChangeEnergyEvent(GameManager.Instance.clickSO.ClickValue);
+        GameManager.Instance.CallChangeEnergyEvent(GameManager.Instance.ClickSO.ClickValue);
     }
 }

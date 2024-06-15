@@ -7,18 +7,27 @@ public class GameManager : Singleton<GameManager>
 {
     public Action<int> EnergyChange;
 
-    public EnergyController energyController;
+    public EnergyController EnergyController;
 
-    public ClickSO clickSO;
+    public ClickSO ClickSO;
+
+    public AutoClick AutoClick;
 
     protected override void Awake()
     {
         base.Awake();
 
-        if (energyController == null)
+        if (EnergyController == null)
         {
             GameObject objg = new GameObject("EnergyController");
-            energyController = objg.AddComponent<EnergyController>();
+            EnergyController = objg.AddComponent<EnergyController>();
+            objg.transform.SetParent(transform);
+        }
+
+        if (AutoClick == null)
+        {
+            GameObject objg = new GameObject("AutoClick");
+            AutoClick = objg.AddComponent<AutoClick>();
             objg.transform.SetParent(transform);
         }
     }

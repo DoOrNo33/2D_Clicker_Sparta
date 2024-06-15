@@ -548,8 +548,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddc89c424a95279408a72c79dcabd14c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energyController: {fileID: 0}
-  clickSO: {fileID: 11400000, guid: aa2ed6234cf17f248b57510c3859c1f5, type: 2}
+  EnergyController: {fileID: 0}
+  ClickSO: {fileID: 11400000, guid: aa2ed6234cf17f248b57510c3859c1f5, type: 2}
+  AutoClick: {fileID: 0}
 --- !u!4 &935020344
 Transform:
   m_ObjectHideFlags: 0
