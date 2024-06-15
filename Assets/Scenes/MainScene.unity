@@ -549,6 +549,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energyController: {fileID: 0}
+  clickSO: {fileID: 11400000, guid: aa2ed6234cf17f248b57510c3859c1f5, type: 2}
 --- !u!4 &935020344
 Transform:
   m_ObjectHideFlags: 0
@@ -709,7 +710,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9f75ed83dae71049ad9d8947350f56f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnergyModifier: 1
 --- !u!1 &1154559670
 GameObject:
   m_ObjectHideFlags: 0
