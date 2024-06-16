@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class ClickBtn : MonoBehaviour
 {
+
     public void Click()
     {
         GameManager.Instance.CallChangeEnergyEvent(GameManager.Instance.ClickSO.ClickValue);
+        GameManager.Instance.ClickEvent?.Invoke(GameManager.Instance.ClickSO.ClickValue);
     }
 }

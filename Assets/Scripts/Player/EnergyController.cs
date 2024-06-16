@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnergyController : MonoBehaviour
 {
-    public int energyAmount { get; private set; }
+    public int energyAmount { get; private set; }  // 메인 에너지 양
 
     private void Awake()
     {

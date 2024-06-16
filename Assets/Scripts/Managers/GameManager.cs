@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     public Action<int> EnergyChange;
+    public Action<int> ClickEvent;
 
     public EnergyController EnergyController;
 
