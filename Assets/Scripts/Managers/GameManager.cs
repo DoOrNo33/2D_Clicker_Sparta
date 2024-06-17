@@ -19,6 +19,8 @@ public class GameManager : Singleton<GameManager>
 
     public ObjectPool objectPool;
 
+    private int onClick = Animator.StringToHash("Click");
+
     protected override void Awake()
     {
         base.Awake();
@@ -57,7 +59,7 @@ public class GameManager : Singleton<GameManager>
 
     private void InitializeGame()
     {
-        // TODO : Load data from save file
+        // TODO : 저장 데이터 불러오기
         ClickSO.ClickValue = 1;
         ClickSO.AutoClickInterval = 1;
         ClickSO.AutoClickEnabled = false;
@@ -71,6 +73,6 @@ public class GameManager : Singleton<GameManager>
         Animator animator = obj.GetComponent<Animator>();
 
         txt.text = ClickSO.ClickValue.ToString();
-        animator.SetTrigger("Click");
+        animator.SetTrigger(onClick);
     }
 }
