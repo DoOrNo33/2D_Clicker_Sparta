@@ -7,14 +7,15 @@ public class ItemAutoClick : Item
 
     [SerializeField] private int baseCost;
     [SerializeField] protected int cost;
-    [SerializeField] protected int itemValue;
+    [SerializeField] protected float itemValue;
 
     protected override void Start()
     {
         base.Start();
 
-        itemStatsText[(int)TextType.Level].text = $"레벨 : {level} / {maxLevel}";
-        itemStatsText[(int)TextType.Cost].text = $"구매 비용 : {cost}";
+        itemStatsText[(int)TextType.Level].text = $"Level : {level} / {maxLevel}";
+        itemStatsText[(int)TextType.Cost].text = $"Cost : {cost}";
+        itemStatsText[(int)TextType.Value].text = $"AutoTime : {-itemValue}";
     }
 
     public override void PurchaseItem()
@@ -35,10 +36,10 @@ public class ItemAutoClick : Item
             }
 
             level++;
-            cost = IncreaseCost(baseCost, level);
+            cost = IncreaseCost(baseCost, level) * IncreaseCost(baseCost, level);
 
-            itemStatsText[(int)TextType.Level].text = $"레벨 : {level} / {maxLevel}";
-            itemStatsText[(int)TextType.Cost].text = $"구매 비용 : {cost}";
+            itemStatsText[(int)TextType.Level].text = $"Level : {level} / {maxLevel}";
+            itemStatsText[(int)TextType.Cost].text = $"Cost : {cost}";
         }
     }
 }

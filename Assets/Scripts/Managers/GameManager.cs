@@ -14,6 +14,8 @@ public class GameManager : Singleton<GameManager>
 
     public AutoClick AutoClick;
 
+    public Particle mainParticle;
+
     protected override void Awake()
     {
         base.Awake();

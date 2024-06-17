@@ -5,7 +5,7 @@ public enum TextType
 {
     Level,
     Cost,
-    Stats
+    Value
 }
 
 public class Item : MonoBehaviour, Purchase

@@ -14,8 +14,9 @@ public class ItemNumOne : Item
     {
         base.Start();
 
-        itemStatsText[(int)TextType.Level].text = $"레벨 : {level} / {maxLevel}";
-        itemStatsText[(int)TextType.Cost].text = $"구매 비용 : {cost}";
+        itemStatsText[(int)TextType.Level].text = $"Level : {level} / {maxLevel}";
+        itemStatsText[(int)TextType.Cost].text = $"Cost : {cost}";
+        itemStatsText[(int)TextType.Value].text = $"Value : {itemValue}";
     }
 
     public override void PurchaseItem()
@@ -31,8 +32,8 @@ public class ItemNumOne : Item
             level++;
             cost = IncreaseCost(baseCost, level);
 
-            itemStatsText[(int)TextType.Level].text = $"레벨 : {level} / {maxLevel}";
-            itemStatsText[(int)TextType.Cost].text = $"구매 비용 : {cost}";
+            itemStatsText[(int)TextType.Level].text = $"Level : {level} / {maxLevel}";
+            itemStatsText[(int)TextType.Cost].text = $"Cost : {cost}";
         }
     }
 }
