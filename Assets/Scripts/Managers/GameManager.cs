@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
@@ -41,7 +42,7 @@ public class GameManager : Singleton<GameManager>
 
     void Start()
     {
-        
+        ClickEvent += CreateText;
     }
 
     void Update()
@@ -60,5 +61,16 @@ public class GameManager : Singleton<GameManager>
         ClickSO.ClickValue = 1;
         ClickSO.AutoClickInterval = 1;
         ClickSO.AutoClickEnabled = false;
+    }
+
+    // TODO : 스크립트 분리
+    public void CreateText(int temp)
+    {
+        GameObject obj = objectPool.SpawnFromPool("ClickTxt");
+        TextMeshProUGUI txt = obj.GetComponent<TextMeshProUGUI>();
+        Animator animator = obj.GetComponent<Animator>();
+
+        txt.text = ClickSO.ClickValue.ToString();
+        animator.SetTrigger("Click");
     }
 }
