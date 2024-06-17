@@ -16,6 +16,8 @@ public class GameManager : Singleton<GameManager>
 
     public Particle mainParticle;
 
+    public ObjectPool objectPool;
+
     protected override void Awake()
     {
         base.Awake();
