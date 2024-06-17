@@ -31,6 +31,8 @@ public class GameManager : Singleton<GameManager>
             AutoClick = objg.AddComponent<AutoClick>();
             objg.transform.SetParent(transform);
         }
+
+        InitializeGame();
     }
 
     void Start()
@@ -46,5 +48,13 @@ public class GameManager : Singleton<GameManager>
     public void CallChangeEnergyEvent(int amount)
     {
         EnergyChange?.Invoke(amount);
+    }
+
+    private void InitializeGame()
+    {
+        // TODO : Load data from save file
+        ClickSO.ClickValue = 1;
+        ClickSO.AutoClickInterval = 1;
+        ClickSO.AutoClickEnabled = false;
     }
 }

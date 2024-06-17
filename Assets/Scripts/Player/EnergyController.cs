@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 
+[Serializable]
 public class EnergyController : MonoBehaviour
 {
-    public int energyAmount { get; private set; }  // 메인 에너지 양
+    [SerializeField] public int energyAmount { get; private set; }  // 메인 에너지 양
 
     private void Awake()
     {
