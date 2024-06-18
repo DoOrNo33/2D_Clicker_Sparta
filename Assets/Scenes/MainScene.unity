@@ -6577,7 +6577,7 @@ MonoBehaviour:
   level: 0
   baseCost: 100
   cost: 100
-  itemValue: 0
+  itemValue: 0.1
 --- !u!1 &1523104332
 GameObject:
   m_ObjectHideFlags: 0
