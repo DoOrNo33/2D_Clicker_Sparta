@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using TMPro;
 using UnityEngine;
 
@@ -49,7 +50,7 @@ public class GameManager : Singleton<GameManager>
 
     void Update()
     {
-        
+
     }
 
     public void CallChangeEnergyEvent(int amount)
