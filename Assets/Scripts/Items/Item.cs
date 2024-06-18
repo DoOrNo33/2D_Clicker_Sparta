@@ -25,13 +25,13 @@ public class Item : MonoBehaviour, Purchase
         
     }
 
-    protected virtual int IncreaseCost(int baseCost, int level)
+    protected virtual long IncreaseCost(long baseCost, int level)
     {
         //피보나치 수열 계산 코드
 
-        int a = baseCost;
-        int b = baseCost;
-        int c = 0;
+        long a = baseCost;
+        long b = baseCost;
+        long c = 0;
 
         for (int i = 0; i < level; i++)
         {

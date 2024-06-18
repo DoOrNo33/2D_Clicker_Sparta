@@ -7,7 +7,7 @@ public class ItemAutoClick : Item
     [SerializeField][Range(0, 10)] private int maxLevel;
     [SerializeField][Range(0, 10)] protected int level;
 
-    [SerializeField] private int baseCost;
+    [SerializeField] private long baseCost;
     [SerializeField] protected long cost;
     [SerializeField] protected long itemValue;
 
