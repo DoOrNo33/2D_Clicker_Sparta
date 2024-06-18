@@ -1,29 +1,41 @@
-using System;
-using UnityEngine;
-using System.Numerics;
 using System.Collections.Generic;
+using System.Numerics;
+using TMPro;
+using UnityEngine;
+using UnityEngine.Pool;
+using UnityEngine.UIElements;
 
-[Serializable]
-public class EnergyController : MonoBehaviour
+public class ClickManager : MonoBehaviour
 {
-    [SerializeField] public BigInteger energyAmount { get; private set; }  // 메인 에너지 양
+    GameManager gm;
+
+    private int onClick = Animator.StringToHash("Click");
+
     private string[] goldUnitArr = new string[] { "", "K", "M", "B", "T", "Qa", "Qi", "Sx", "Sp", "Oc", "No", "Dc", "Ud", "Dd", "Td", "Qad", "Qid", "Sxd", "Spd", "Od", "Nd", "Vg", "Uvg", "Dvg", "Tvg", "Qavg", "Qivg", "Sxvg", "Spvg", "Ovg", "Nvg", "Tg", "Utg", "Dtg", "Ttg", "Qatg", "Qitg", "Sxtg", "Sptg", "Otg", "Ntg", "Qag", "Uqag", "Dqag", "Tqag", "Qaqag", "Qiqag", "Sxqag", "Spqag", "Oqag", "Nqag", "Sg", "Usg", "Dsg", "Tsg", "Qasg", "Qisg", "Sxsg", "Spsg", "Osg", "Nsg", "Og", "Uog", "Dog", "Tog", "Qaog", "Qiog", "Sxog", "Spog", "Oog", "Nog", "Ng", "Ung", "Dng", "Tng", "Qang", "Qing", "Sxng", "Spng", "Ong", "Nng", "Cg" };
 
 
-    private void Awake()
+    private void Start()
     {
-        GameManager.Instance.EnergyChange += ChangeEnergyAmount;
+        GameManager.Instance.ClickManager = this;
+        gm = GameManager.Instance;
+        gm.ClickEvent += CreateText;
     }
 
-    public void ChangeEnergyAmount(long amount)
+    // TODO : 스크립트 분리
+    public void CreateText(long temp)
     {
-        energyAmount += amount;
+        GameObject obj = gm.objectPool.SpawnFromPool("ClickTxt");
+        TextMeshProUGUI txt = obj.GetComponent<TextMeshProUGUI>();
+        Animator animator = obj.GetComponent<Animator>();
+
+        txt.text = GetValue(gm.ClickSO.ClickValue);
+        animator.SetTrigger(onClick);
     }
 
-    public string GetEnergyAmount()
+    public string GetValue(long num)
     {
         int placeN = 3;  // 끊어서 보여줄 자리수
-        BigInteger value = energyAmount;
+        BigInteger value = num;
         List<int> numList = new List<int>();
         int p = (int)Mathf.Pow(10, placeN); // 끊어서 보여줄 자리수를 만들기 위해 10의  제곱값을 구함
 
@@ -36,7 +48,7 @@ public class EnergyController : MonoBehaviour
 
         string retStr = "";
 
-        if (numList.Count < 3)
+        if (numList.Count < 2)
         {
             for (int i = numList.Count - 1; i >= 0; i--)
             {
@@ -45,7 +57,7 @@ public class EnergyController : MonoBehaviour
         }
         else
         {
-            for (int i = numList.Count - 1; i >= numList.Count - 3; i--)
+            for (int i = numList.Count - 1; i >= numList.Count - 2; i--)
             {
                 retStr = retStr + numList[i].ToString() + goldUnitArr[i];
             }

@@ -7,8 +7,8 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    public Action<int> EnergyChange;
-    public Action<int> ClickEvent;
+    public Action<long> EnergyChange;
+    public Action<long> ClickEvent;
 
     public EnergyController EnergyController;
 
@@ -20,7 +20,7 @@ public class GameManager : Singleton<GameManager>
 
     public ObjectPool objectPool;
 
-    private int onClick = Animator.StringToHash("Click");
+    public ClickManager ClickManager;
 
     protected override void Awake()
     {
@@ -45,7 +45,7 @@ public class GameManager : Singleton<GameManager>
 
     void Start()
     {
-        ClickEvent += CreateText;
+
     }
 
     void Update()
@@ -53,7 +53,7 @@ public class GameManager : Singleton<GameManager>
 
     }
 
-    public void CallChangeEnergyEvent(int amount)
+    public void CallChangeEnergyEvent(long amount)
     {
         EnergyChange?.Invoke(amount);
     }
@@ -66,14 +66,5 @@ public class GameManager : Singleton<GameManager>
         ClickSO.AutoClickEnabled = false;
     }
 
-    // TODO : 스크립트 분리
-    public void CreateText(int temp)
-    {
-        GameObject obj = objectPool.SpawnFromPool("ClickTxt");
-        TextMeshProUGUI txt = obj.GetComponent<TextMeshProUGUI>();
-        Animator animator = obj.GetComponent<Animator>();
 
-        txt.text = ClickSO.ClickValue.ToString();
-        animator.SetTrigger(onClick);
-    }
 }

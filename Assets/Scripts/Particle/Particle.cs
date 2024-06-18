@@ -15,7 +15,7 @@ public class Particle : MonoBehaviour
         GameManager.Instance.ClickEvent += PlayParticle;
     }
     
-    public void PlayParticle(int temp)
+    public void PlayParticle(long temp)
     {
         clickParticle.Play();
     }

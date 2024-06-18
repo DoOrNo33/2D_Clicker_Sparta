@@ -19,7 +19,7 @@ public class EnergyUI : MonoBehaviour
         
     }
 
-    public void UpdateEnergyUI(int amount)
+    public void UpdateEnergyUI(long amount)
     {
         energyText.text = GameManager.Instance.EnergyController.GetEnergyAmount();
     }
