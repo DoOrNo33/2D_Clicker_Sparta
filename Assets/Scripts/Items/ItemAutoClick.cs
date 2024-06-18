@@ -44,7 +44,15 @@ public class ItemAutoClick : Item
             cost = IncreaseCost(baseCost, level) * IncreaseCost(baseCost, level);
 
             itemStatsText[(int)TextType.Level].text = $"Level : {level} / {maxLevel}";
-            itemStatsText[(int)TextType.Cost].text = $"Cost : {GetBigInt(cost)}";
+            if (level == maxLevel)
+            {
+                itemStatsText[(int)TextType.Cost].text = "Sold Out";
+            }
+            else
+            {
+                itemStatsText[(int)TextType.Cost].text = $"Cost : {GetBigInt(cost)}";
+            }
+
         }
     }
 
